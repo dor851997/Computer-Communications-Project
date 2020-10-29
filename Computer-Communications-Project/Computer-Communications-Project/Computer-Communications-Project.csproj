@@ -137,6 +137,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Aladdin.jpg" />
+    <Content Include="Content\Images\back-to-the-future.jpg" />
+    <Content Include="Content\Images\Black-and-blue.png" />
+    <Content Include="Content\Images\Corona.jpg" />
+    <Content Include="Content\Images\Ironman.jpg" />
+    <Content Include="Content\Images\Moonlight.jpg" />
+    <Content Include="Content\Images\mulan.jpg" />
+    <Content Include="Content\Images\Project-Power.jpg" />
+    <Content Include="Content\Images\the-old-guard.jpg" />
+    <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

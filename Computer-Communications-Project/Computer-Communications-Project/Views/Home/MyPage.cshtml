@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    ViewData["CurrentTime"] = DateTime.Now.ToString();
 }
 
 <!DOCTYPE html>
@@ -9,10 +10,69 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>MyPage</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
-    <div> 
-        Welcome to my  mvc page
+    <div style="background-color:#fddb3a">
+        
+            <a href="#" class="myButton">Sign In</a>
+            <span class="middle-obj">@ViewData["CurrentTime"]</span>
+            <span class="middle-obj"><img style="width:100px" src="https://img.etimg.com/thumb/msid-59738997,width-1070,height-580,overlay-economictimes/photo.jpg" /></span>
+        
+            
+    </div>
+    <div style="background-color:#ffffff;">
+        <a href="#" class="myButton">Search</a>
+        <label>date:</label>
+        <input type="date">
+        <label>time:</label>
+        <input type="time">
+        <label>price range:</label>
+        <input type="range" min="0" max="50">
+        <label>category</label>
+        <select>
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedey">Comedey</option>
+            <option value="Horor">Horor</option>
+        </select>
+    </div>
+
+    <div>
+        <label >Sort by</label>
+        <select>
+            <option value="price-increase">price increase</option>
+            <option value="price-decrease">price decrease</option>
+            <option value="most-popular">most popular</option>
+            <option value="category">category</option>
+        </select>
+
+        <table style="width:100%">
+            <tr>
+                <td><img src="~/Content/Images/Aladdin.jpg" /> <br /> movie1</td>
+                <td><img src="~/Content/Images/Ironman.jpg" /> <br /> movie2</td>
+                <td><img src="~/Content/Images/Moonlight.jpg" /><br /> movie3</td>
+            </tr>
+            <tr>
+                <td><img src="~/Content/Images/back-to-the-future.jpg " /><br />movie4 </td>
+                <td><img src="~/Content/Images/Black-and-blue.png  " /><br />movie5</td>
+                <td><img src="~/Content/Images/Corona.jpg" /><br />movie6</td>
+            </tr>
+            <tr>
+                <td><img src="~/Content/Images/mulan.jpg" /><br />movie7</td>
+                <td><img src="~/Content/Images/Project-Power.jpg" /><br />movie8</td>
+                <td><img src="~/Content/Images/the-old-guard.jpg" /><br />movie9</td>
+            </tr>
+        </table>
+    </div>
+    <div class="last-div">
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        
+
     </div>
 </body>
 </html>
