@@ -173,6 +173,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\MyPage.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

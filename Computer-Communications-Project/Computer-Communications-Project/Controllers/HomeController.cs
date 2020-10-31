@@ -14,9 +14,14 @@ namespace Computer_Communications_Project.Controllers
             return View();
         }
 
-        public ActionResult ShowHomePage()
+        public ActionResult MyPage()
         {
-            return View("MyPage");
+            return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
