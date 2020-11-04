@@ -6,18 +6,16 @@ using System.Web.Mvc;
 
 namespace Computer_Communications_Project.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
-        // GET: Home
+        // GET: Login
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult MyPage()
+        public ActionResult Login()
         {
             return View();
         }
-
     }
 }
