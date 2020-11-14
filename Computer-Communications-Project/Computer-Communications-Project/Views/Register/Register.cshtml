@@ -1,0 +1,57 @@
+﻿@*@{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Register</title>
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+    </html>*@
+
+
+@model Computer_Communications_Project.Models.User
+@using Computer_Communications_Project.Models
+@{
+    ViewBag.Title = "Register";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <h2>Register</h2>
+    <br />
+    <div>
+        @using (Html.BeginForm("SubmitRegister", "Register", FormMethod.Post))
+        {
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td>@Html.TextBoxFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+        </table>
+            <br />
+            <br />
+            <input id="SubmitRegister" type="Submit" value="Register" />
+        }
+    </div>
+</body>
+</html>
