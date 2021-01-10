@@ -1,22 +1,4 @@
-﻿@*@{
-        Layout = null;
-    }
-
-    <!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Register</title>
-    </head>
-    <body>
-        <div>
-        </div>
-    </body>
-    </html>*@
-
-
-@model Computer_Communications_Project.Models.User
+﻿@model Computer_Communications_Project.Models.User
 @using Computer_Communications_Project.Models
 @{
     ViewBag.Title = "Register";
@@ -38,17 +20,18 @@
     <div>
         @using (Html.BeginForm("SubmitRegister", "Register", FormMethod.Post))
         {
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td>@Html.TextBoxFor(m => m.UserName)</td>
-            </tr>
-            <tr>
-                <td>Password: </td>
-                <td>@Html.PasswordFor(m => m.Password)</td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td>@Html.TextBoxFor(m => m.UserName)</td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                </tr>
+            </table>
             <br />
+            <h4 style="color:red">@TempData["LoginStatus"]</h4>
             <br />
             <input id="SubmitRegister" type="Submit" value="Register" />
         }
