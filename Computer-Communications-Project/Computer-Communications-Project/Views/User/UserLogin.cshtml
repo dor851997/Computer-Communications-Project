@@ -1,7 +1,8 @@
 ﻿@model Computer_Communications_Project.Models.User
-
 @using Computer_Communications_Project.Models
-@{ ViewBag.Title = "Login"; }
+@{
+    ViewBag.Title = "User Login";
+}
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
@@ -13,10 +14,10 @@
 
 </head>
 <body>
-<h2>Login</h2>
+    <h2>Login</h2>
     <br />
     <div>
-        @using (Html.BeginForm("SubmitLogin", "Login", FormMethod.Post))
+        @using (Html.BeginForm("SubmitLogin", "User", FormMethod.Post))
         {
             <table>
                 <tr>
@@ -33,9 +34,8 @@
             <br />
             <h4 style="color:red">@TempData["LoginStatus"]</h4>
             <br />
-            <input id="SubmitLogin" type="submit" value="Login"/>
+            <input id="SubmitLogin" type="submit" value="Login" />
         }
-        <br /><br />
     </div>
 </body>
 </html>

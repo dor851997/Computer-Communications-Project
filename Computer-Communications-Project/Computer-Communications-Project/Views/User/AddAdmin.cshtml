@@ -1,0 +1,42 @@
+﻿@model Computer_Communications_Project.Models.Admin
+@using Computer_Communications_Project.Models
+@{
+    ViewBag.Title = "Add admin";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <h2>@ViewBag.Title</h2>
+    <br />
+    <div>
+        @using (Html.BeginForm("SubmitAdminRegister", "User", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td>@Html.TextBoxFor(m => m.UserName) @Html.ValidationMessageFor(x => x.UserName) </td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>@Html.PasswordFor(m => m.Password) @Html.ValidationMessageFor(x => x.Password)</td>
+                </tr>
+            </table>
+            <br />
+            <h4 style="color:red">@TempData["LoginStatus"]</h4>
+            <br />
+            <br />
+            <input id="SubmitAdminRegister" type="Submit" value="Add Admin" />
+            <br />
+        }
+    </div>
+</body>
+</html>
