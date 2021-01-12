@@ -188,6 +188,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\Movie\Movie.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Movie\ManageMovie.cshtml" />
     <None Include="Views\Seats\Seats.cshtml" />
     <Content Include="Scripts\Seatsscript.js" />
     <Content Include="Web.config" />

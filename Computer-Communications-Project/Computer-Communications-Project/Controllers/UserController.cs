@@ -176,7 +176,7 @@ namespace Computer_Communications_Project.Controllers
         }
         public ActionResult AddAdmin()
         {
-            if (true)
+            if (Session["userType"] != null && Session["userType"].ToString() == "admin")
             {
                 return View(new Admin());
             }

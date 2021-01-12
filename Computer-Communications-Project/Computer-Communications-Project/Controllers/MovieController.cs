@@ -18,5 +18,10 @@ namespace Computer_Communications_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult ManageMovie()
+        {
+            return View();
+        }
     }
 }

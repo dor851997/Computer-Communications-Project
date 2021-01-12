@@ -9,5 +9,6 @@ namespace Computer_Communications_Project.ViewModel
     public class MovieViewModel
     {
         public List<Movie> Movies { get; set; }
+        public Movie movieName { get; set; }
     }
 }
