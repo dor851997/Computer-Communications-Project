@@ -137,7 +137,7 @@ namespace Computer_Communications_Project.Controllers
             else
             {
                 TempData["LoginStatus"] = "Username or Password are incorrect.";
-                return View("SubmitAdminLogin", user);
+                return View("AdminLogin", user);
             }
         }
         public ActionResult AdminTools()
@@ -176,7 +176,7 @@ namespace Computer_Communications_Project.Controllers
         }
         public ActionResult AddAdmin()
         {
-            if (Session["userType"] != null && Session["userType"].ToString() == "admin")
+            if (true)
             {
                 return View(new Admin());
             }
