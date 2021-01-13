@@ -49,12 +49,15 @@
         <label>price range:</label>
         <input type="range" min="0" max="50">
         <label>category</label>
-        <select>
-            <option value="Action">Action</option>
-            <option value="Drama">Drama</option>
-            <option value="Comedey">Comedey</option>
-            <option value="Horor">Horor</option>
-        </select>
+        <form action="/">
+            <select id="CategorySelect" name="CategorySelect">
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Comedey">Comedey</option>
+                <option value="Horor">Horor</option>
+            </select>
+            <input type="submit" value="submit"/>
+        </form>
     </div>
 
     <div>
@@ -70,21 +73,18 @@
     <div class="row">
         @foreach (Movie m in Model.Movies)
         {
-            
-            <div class="column">
-                <div class="card">
-                    <img src="@m.src" alt="Jane" style="width:100%">
-                    <div class="container">
-                        <h2>@m.MovieName</h2>
-                        <p class="title">@m.Category</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>example@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                <div class="column">
+                    <div class="card">
+                        <img src="@m.src" alt="Jane" style="width:100%">
+                        <div class="container">
+                            <h2>@m.MovieName</h2>
+                            <p class="title">@m.Category</p>
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>example@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-
         }
 
     </div>

@@ -17,15 +17,21 @@ namespace Computer_Communications_Project.Controllers
             return View();
         }
 
-        public ActionResult MyPage()
+        public ActionResult MyPage(string CategorySelect)
         {
+            List<Movie> movies;
             MoviesDal dal = new MoviesDal();
-            List<Movie> movies = dal.Movies.ToList<Movie>();
+            if (CategorySelect == null)
+            {
+                movies = dal.Movies.ToList<Movie>();
+            }
+            else
+            {
+                movies = dal.Movies.Where(m => m.Category == CategorySelect).ToList();
+            }
             MovieViewModel MyMovieModel = new MovieViewModel();
             MyMovieModel.Movies = movies;
             return View(MyMovieModel);
-
-
         }
 
     }
