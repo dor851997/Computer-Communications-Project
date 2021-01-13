@@ -189,6 +189,7 @@
     <Content Include="Views\Movie\Movie.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Movie\ManageMovie.cshtml" />
+    <Content Include="Views\Movie\AddMovie.cshtml" />
     <None Include="Views\Seats\Seats.cshtml" />
     <Content Include="Scripts\Seatsscript.js" />
     <Content Include="Web.config" />

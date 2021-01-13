@@ -1,0 +1,72 @@
+﻿@model Computer_Communications_Project.Models.Movie
+@using Computer_Communications_Project.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Movie</title>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <h2>Add Movie</h2>
+    <br />
+    <div>
+        @using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
+        {
+        <table>
+            <tr>
+                <td>Movie Name: </td>
+                <td>@Html.TextBoxFor(m => m.MovieName)</td>
+            </tr>
+            <tr>
+                <td>Age Limet: </td>
+                <td>@Html.TextBoxFor(m => m.AgeLimit)</td>
+            </tr>
+            <tr>
+                <td>Category: </td>
+                <td>@Html.TextBoxFor(m => m.Category)</td>
+            </tr>
+            <tr>
+                <td>Price: </td>
+                <td>@Html.TextBoxFor(m => m.Price)</td>
+            </tr>
+            <tr>
+                <td>Date: </td>
+                <td>@Html.TextBoxFor(m => m.Date)</td>
+                
+            </tr>
+            <tr>
+                <td>Discount: </td>
+                <td>@Html.TextBoxFor(m => m.Discount) </td>
+            </tr>
+            <tr>
+                <td>HallName </td>
+                <td>@Html.TextBoxFor(m => m.HallName)</td>
+            </tr>
+            <tr>
+                <td>Duration: </td>
+                <td>@Html.TextBoxFor(m => m.Duration)</td>
+            </tr>
+            <tr>
+                <td>src:</td>
+                <td>@Html.TextBoxFor(m => m.src)</td>
+            </tr>
+        </table>
+            <br />
+            <h4 style="color:red">@TempData["LoginStatus"]</h4>
+            <br />
+            <input id="AddMovie" type="Submit" value="AddMovie" />
+        }
+    </div>
+</body>
+

@@ -20,22 +20,12 @@ namespace Computer_Communications_Project.Controllers
         public ActionResult MyPage()
         {
             MoviesDal dal = new MoviesDal();
-            MovieViewModel uvm = new MovieViewModel();
-            if (Request.Form["MovieName"] == null)
-            {
-                return RedirectToAction("MyPage", "Home");
-            }
-            string searchVal = Request.Form["MovieName"].ToString();
-            List<Movie> objMovies = (from x in dal.Movies
-                                   where x.MovieName.Contains(searchVal)
-                                   select x).ToList<Movie>();
-            Movie objMovie = new Movie();
-            objMovie.MovieName = searchVal;
-            uvm.movieName = objMovie;
-            uvm.Movies = objMovies;
-            return View(uvm);
+            List<Movie> movies = dal.Movies.ToList<Movie>();
+            MovieViewModel MyMovieModel = new MovieViewModel();
+            MyMovieModel.Movies = movies;
+            return View(MyMovieModel);
 
-           
+
         }
 
     }

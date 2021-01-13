@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Computer_Communications_Project.DAL;
+using Computer_Communications_Project.Models;
 
 namespace Computer_Communications_Project.Controllers
 {
@@ -22,6 +24,25 @@ namespace Computer_Communications_Project.Controllers
         public ActionResult ManageMovie()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddMovie()
+        {
+            return View("AddMovie");
+        }
+
+        [HttpPost]
+        public ActionResult AddMovie(Movie movie)
+        {
+            MoviesDal dal = new MoviesDal();
+            if (ModelState.IsValid)
+            {
+                dal.Movies.Add(movie);
+                dal.SaveChanges();
+                return RedirectToAction("MyPage", "Home");
+            }
+            return View("AddMovie", movie);
         }
     }
 }
