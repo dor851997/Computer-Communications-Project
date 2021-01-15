@@ -56,20 +56,24 @@
                 <option value="Comedey">Comedey</option>
                 <option value="Horor">Horor</option>
             </select>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="submit" />
         </form>
+
+
+        @using (Html.BeginForm("priceAction", "Home", FormMethod.Post))
+        {
+            
+                <select id="PriceSelect" name="PriceSelect">
+                    <option value="price-increase">price increase</option>
+                    <option value="price-decrease">price decrease</option>
+
+                </select>
+                <input type="submit" value="submit" />
+  
+        }
     </div>
 
-    <div>
-        <label>Sort by</label>
-        <select>
-            <option value="price-increase">price increase</option>
-            <option value="price-decrease">price decrease</option>
-            <option value="most-popular">most popular</option>
-            <option value="category">category</option>
-        </select>
 
-    </div>
     <div class="row">
         @foreach (Movie m in Model.Movies)
         {

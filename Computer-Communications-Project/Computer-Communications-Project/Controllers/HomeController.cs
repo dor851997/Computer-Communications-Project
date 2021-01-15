@@ -34,5 +34,23 @@ namespace Computer_Communications_Project.Controllers
             return View(MyMovieModel);
         }
 
+        public ActionResult priceAction(string PriceSelect)
+        {
+            List<Movie> movies;
+            MoviesDal dal = new MoviesDal();
+            movies = dal.Movies.ToList<Movie>();
+            if(PriceSelect == "price-increase")
+            {
+                movies = dal.Movies.OrderBy(m => m.Price ).ToList();
+
+            }
+            else
+            {
+                movies = dal.Movies.OrderByDescending(m => m.Price).ToList();
+            }
+            MovieViewModel MyMovieModel = new MovieViewModel();
+            MyMovieModel.Movies = movies;
+            return View("MyPage" ,MyMovieModel);
+        }
     }
 }
