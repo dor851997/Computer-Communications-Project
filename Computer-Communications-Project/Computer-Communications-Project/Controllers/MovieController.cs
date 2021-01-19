@@ -36,6 +36,8 @@ namespace Computer_Communications_Project.Controllers
         public ActionResult AddMovie(Movie movie)
         {
             MoviesDal dal = new MoviesDal();
+            //var movieIsAlreadyExists = dal.Movies.Any(x => x.MovieName == movie.MovieName);
+            //var sameHall = dal.Movies.Any(x => x.MovieName == movie.MovieName);
             if (ModelState.IsValid)
             {
                 dal.Movies.Add(movie);

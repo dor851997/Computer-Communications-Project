@@ -41,16 +41,34 @@ namespace Computer_Communications_Project.Controllers
             movies = dal.Movies.ToList<Movie>();
             if(PriceSelect == "price-increase")
             {
-                movies = dal.Movies.OrderBy(m => m.Price ).ToList();
+                movies = dal.Movies.OrderByDescending(m => m.Price).ToList();
 
+            }
+            else if(PriceSelect == "price-decrease")
+            {
+                movies = dal.Movies.OrderBy(m => m.Price).ToList();
             }
             else
             {
-                movies = dal.Movies.OrderByDescending(m => m.Price).ToList();
+                movies = dal.Movies.OrderByDescending(m => m.Rating).ToList();
             }
             MovieViewModel MyMovieModel = new MovieViewModel();
             MyMovieModel.Movies = movies;
             return View("MyPage" ,MyMovieModel);
+        }
+        public ActionResult dateAction(string dateSelect)
+        {
+            DateTime dateS = Convert.ToDateTime(dateSelect);
+            List<Movie> movies;
+            MoviesDal dal = new MoviesDal();
+            movies = dal.Movies.ToList<Movie>();
+            if(dateSelect != null)
+            {
+                movies = movies.Where(m => m.Date.Date == dateS.Date).ToList();
+            }
+            MovieViewModel MyMovieModel = new MovieViewModel();
+            MyMovieModel.Movies = movies;
+            return View("MyPage", MyMovieModel);
         }
     }
 }

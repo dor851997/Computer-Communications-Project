@@ -36,19 +36,11 @@
         }
 
         <span class="middle-obj">@ViewData["CurrentTime"]</span>
-        <span class="middle-obj"><img style="width:100px" src="https://img.etimg.com/thumb/msid-59738997,width-1070,height-580,overlay-economictimes/photo.jpg" /></span>
+        <span class="middle-obj"><img style="width:100px" src="https://thumbs.dreamstime.com/z/combination-letter-ds-d-s-gold-golden-alphabet-metal-logo-icon-design-combination-letter-ds-d-s-gold-golden-alphabet-logo-icon-139484636.jpg" /></span>
 
 
     </div>
     <div style="background-color:#ffffff;">
-        <a href="#" class="myButton">Search</a>
-        <label>date:</label>
-        <input type="date">
-        <label>time:</label>
-        <input type="time">
-        <label>price range:</label>
-        <input type="range" min="0" max="50">
-        <label>category</label>
         <form action="/">
             <select id="CategorySelect" name="CategorySelect">
                 <option value="Action">Action</option>
@@ -62,14 +54,21 @@
 
         @using (Html.BeginForm("priceAction", "Home", FormMethod.Post))
         {
-            
-                <select id="PriceSelect" name="PriceSelect">
-                    <option value="price-increase">price increase</option>
-                    <option value="price-decrease">price decrease</option>
 
-                </select>
-                <input type="submit" value="submit" />
-  
+            <select id="PriceSelect" name="PriceSelect">
+                <option value="price-increase">price increase</option>
+                <option value="price-decrease">price decrease</option>
+                <option value="most-popular">Most Popular</option>
+
+            </select>
+            <input type="submit" value="submit" />
+
+        }
+        @using (Html.BeginForm("dateAction", "Home", FormMethod.Post))
+        {
+            <label for="dateSelect">Date: </label>
+            <input type="datetime-local" id="dateSelect" name="dateSelect">
+            <input type="submit" value="submit">
         }
     </div>
 
@@ -77,15 +76,17 @@
     <div class="row">
         @foreach (Movie m in Model.Movies)
         {
-                <div class="column">
+                <div class="column" style="width:300px">
                     <div class="card">
                         <img src="@m.src" alt="Jane" style="width:100%">
                         <div class="container">
                             <h2>@m.MovieName</h2>
                             <p class="title">@m.Category</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p>example@example.com</p>
-                            <p><button class="button">Contact</button></p>
+                            <p>Age limit: @m.AgeLimit</p>
+                            <p>Date and time: @m.Date</p>
+                            <p>Duration: @m.Duration</p>
+                            <p>Price: @m.Price</p>
+                            <p>Hall number: @m.HallName</p>
                         </div>
                     </div>
                 </div>

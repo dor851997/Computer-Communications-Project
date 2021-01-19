@@ -1,15 +1,15 @@
 ﻿/* Three columns side by side */
 .column {
     float: left;
-    width: 33.3%;
+    width: 25%;
     margin-bottom: 16px;
     padding: 0 8px;
 }
 
 /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 250px) {
     .column {
-        width: 100%;
+        width: 250px;
         display: block;
     }
 }

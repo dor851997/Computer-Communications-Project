@@ -28,6 +28,7 @@ namespace Computer_Communications_Project.Models
         public TimeSpan Duration { get; set; }
         [Required]
         public string src { get; set; }
-        
+        [Required]
+        public double Rating { get; set; }
     }
 }
