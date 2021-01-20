@@ -13,22 +13,26 @@
 </head>
 <body>
     <h1><strong>Administrator Tools</strong></h1>
-    <br /><br /><br /><br /><br />
-                            <div>
-                                @using (Html.BeginForm("SubmitAdminLogin", "User", FormMethod.Post)) 
-                                {
-                                    <h2>
-                                        <strong>
-                                            To manage list of users, click <button type = "button" onclick = "location.href='@Url.Action("ManageUsers", "User")'" > Search User </button >
-                                            <br /><br />
-                                            To add an administrator user, click <button type="button" onclick="location.href='@Url.Action("AddAdmin","User")'">Add Admin</button>
-                                            <br /><br />
-                                            To add a moives, click <button type="button" onclick="location.href='@Url.Action("AddMovie","Movie")'">Add Movie</button>
-                                            <br /><br />
-                                        </strong>
-                                    </h2>
-                                }
-                                <br /><br /><br /><br /><br />
-                            </div>
+    <br /><br />
+    <div>
+        @using (Html.BeginForm("SubmitAdminLogin", "User", FormMethod.Post))
+        {
+            <h2>
+                <strong>
+                    To manage list of users, click <button type="button" onclick="location.href='@Url.Action("ManageUsers", "User")'"> Search User </button>
+                    <br /><br />
+                    To manage list of movies, click <button type="button" onclick="location.href='@Url.Action("ManageMovie", "Movie")'"> Search Movie </button>
+                    <br /><br />
+                    To add an administrator user, click <button type="button" onclick="location.href='@Url.Action("AddAdmin","User")'">Add Admin</button>
+                    <br /><br />
+                    To add a moives, click <button type="button" onclick="location.href='@Url.Action("AddMovie","Movie")'">Add Movie</button>
+                    <br /><br />
+                    To edit a moives, click <button type="button" onclick="location.href='@Url.Action("EditMovie","Movie")'">Edit Movie</button>
+                    <br /><br />
+                </strong>
+            </h2>
+        }
+        <br /><br /><br /><br /><br />
+    </div>
 </body>
 </html>

@@ -160,11 +160,11 @@ namespace Computer_Communications_Project.Controllers
         {
             UsersDal dal = new UsersDal();
             UserViewModel uvm = new UserViewModel();
-            if (Request.Form["username"] == null)
+            if (Request.Form["UserName"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MyPage", "Home");
             }
-            string searchVal = Request.Form["username"].ToString();
+            string searchVal = Request.Form["UserName"].ToString();
             List<User> objUsers = (from x in dal.Users
                                    where x.UserName.Contains(searchVal)
                                    select x).ToList<User>();

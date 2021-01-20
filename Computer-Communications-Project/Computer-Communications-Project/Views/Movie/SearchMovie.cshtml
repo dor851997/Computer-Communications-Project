@@ -42,16 +42,31 @@
     </style>
 </head>
 <body>
+
     <div>
-        <form action="SearchUser" method="post">
+        <form action="Delete" method="post">
             <br />
             <table>
                 <tr>
-                    <td>Enter Username to search:</td>
-                    <td><input id="Text" type="text" name="username" value="@Model.movieName.MovieName" /></td>
+                    <td>Enter movie name to delete:</td>
+                    <td><input id="Text" type="text" name="MovieName" value="@Model.movieName.MovieName" /></td>
                 </tr>
                 <tr>
-                    <td><input id="Submit" type="submit" value="Search User" /></td>
+                    <td><input id="Submit" type="submit" value="Delete Movie" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <form action="SearchMovie" method="post">
+            <br />
+            <table>
+                <tr>
+                    <td>Enter movie name to search:</td>
+                    <td><input id="Text" type="text" name="MovieName" value="@Model.movieName.MovieName" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Submit" type="submit" value="Search Movie" /></td>
                 </tr>
             </table>
         </form>
@@ -65,10 +80,9 @@
         }
         @obj.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
         columns: obj.Columns(
-                 obj.Column("MovieName", "MovieName"),
-                 obj.Column("AgeLimet", "AgeLimet")))
+                 obj.Column("MovieName", "Movie Name")))
     </div>
-
+    <br />
 </body>
 </html>
 
