@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Computer_Communications_Project.DAL;
 using Computer_Communications_Project.Models;
 using Computer_Communications_Project.ViewModel;
@@ -59,12 +60,28 @@ namespace Computer_Communications_Project.Controllers
         public ActionResult AddMovie(Movie movie)
         {
             MoviesDal dal = new MoviesDal();
-            //var movieIsAlreadyExists = dal.Movies.Any(x => x.MovieName == movie.MovieName);
-            //var sameHall = dal.Movies.Any(x => x.MovieName == movie.MovieName);
+            var sameHallname = dal.Movies.Any(x => x.Date == movie.Date && x.HallName == movie.HallName);
+            var sameDate = dal.Movies.Any(x => x.Date == movie.Date);
             if (ModelState.IsValid)
             {
-                dal.Movies.Add(movie);
-                dal.SaveChanges();
+                if (sameDate == true)
+                {
+                    if(sameHallname == true)
+                    {
+                        TempData["MovieStatus"] = "There is a movie at the same date and hall.";
+                        return RedirectToAction("AddMovie",movie);
+                    }
+                    else
+                    {
+                        dal.Movies.Add(movie);
+                        dal.SaveChanges();
+                    }
+                }
+                else
+                {
+                    dal.Movies.Add(movie);
+                    dal.SaveChanges();
+                }
                 return RedirectToAction("MyPage", "Home");
             }
             return View("AddMovie", movie);

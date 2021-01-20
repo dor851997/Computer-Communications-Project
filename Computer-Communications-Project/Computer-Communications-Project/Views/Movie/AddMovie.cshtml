@@ -23,51 +23,52 @@
     <div>
         @using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
         {
-        <table>
-            <tr>
-                <td>Movie Name: </td>
-                <td>@Html.TextBoxFor(m => m.MovieName)</td>
-            </tr>
-            <tr>
-                <td>Age Limet: </td>
-                <td>@Html.TextBoxFor(m => m.AgeLimit)</td>
-            </tr>
-            <tr>
-                <td>Category: </td>
-                <td>@Html.TextBoxFor(m => m.Category)</td>
-            </tr>
-            <tr>
-                <td>Price: </td>
-                <td>@Html.TextBoxFor(m => m.Price)</td>
-            </tr>
-            <tr>
-                <td>Date: </td>
-                <td>@Html.TextBoxFor(m => m.Date)</td>
+            <table>
+                <tr>
+                    <td>Movie Name: </td>
+                    <td>@Html.TextBoxFor(m => m.MovieName)</td>
+                </tr>
+                <tr>
+                    <td>Age Limet: </td>
+                    <td>@Html.TextBoxFor(m => m.AgeLimit)</td>
+                </tr>
+                <tr>
+                    <td>Category: </td>
+                    <td>@Html.TextBoxFor(m => m.Category)</td>
+                </tr>
+                <tr>
+                    <td>Price: </td>
+                    <td>@Html.TextBoxFor(m => m.Price)</td>
+                </tr>
+                <tr>
+                    <td>Date: </td>
+                    <td>@Html.TextBoxFor(m => m.Date)</td>
 
-            </tr>
-            <tr>
-                <td>Discount: </td>
-                <td>@Html.TextBoxFor(m => m.Discount) </td>
-            </tr>
-            <tr>
-                <td>HallName </td>
-                <td>@Html.TextBoxFor(m => m.HallName)</td>
-            </tr>
-            <tr>
-                <td>Duration: </td>
-                <td>@Html.TextBoxFor(m => m.Duration)</td>
-            </tr>
-            <tr>
-                <td>SRC:</td>
-                <td>@Html.TextBoxFor(m => m.src)</td>
-            </tr>
-            <tr>
-                <td>Rating:</td>
-                <td>@Html.TextBoxFor(m => m.Rating)</td>
-            </tr>
-        </table>
+                </tr>
+                <tr>
+                    <td>Discount: </td>
+                    <td>@Html.TextBoxFor(m => m.Discount) </td>
+                </tr>
+                <tr>
+                    <td>HallName </td>
+                    <td>@Html.TextBoxFor(m => m.HallName)</td>
+                </tr>
+                <tr>
+                    <td>Duration: </td>
+                    <td>@Html.TextBoxFor(m => m.Duration)</td>
+                </tr>
+                <tr>
+                    <td>SRC:</td>
+                    <td>@Html.TextBoxFor(m => m.src)</td>
+                </tr>
+                <tr>
+                    <td>Rating:</td>
+                    <td>@Html.TextBoxFor(m => m.Rating)</td>
+                </tr>
+            </table>
             <input id="AddMovie" type="Submit" value="AddMovie" />
         }
+        <h4 style="color:red">@TempData["MovieStatus"]</h4>
     </div>
 </body>
 
