@@ -25,9 +25,11 @@ namespace Computer_Communications_Project.Controllers
 
         public ActionResult ManageMovie()
         {
+            MoviesDal dal = new MoviesDal();
             MovieViewModel mvm = new MovieViewModel();
+            List<Movie> movies = dal.Movies.ToList<Movie>();
             mvm.movieName = new Movie();
-            mvm.Movies = new List<Movie>();
+            mvm.Movies = movies;
             return View("SearchMovie", mvm);
         }
 
@@ -60,7 +62,10 @@ namespace Computer_Communications_Project.Controllers
         public ActionResult AddMovie(Movie movie)
         {
             MoviesDal dal = new MoviesDal();
+            HallsDal hallDal = new HallsDal();
+            Hall hall = new Hall();
             var sameHallname = dal.Movies.Any(x => x.Date == movie.Date && x.HallName == movie.HallName);
+            var HallName = hallDal.Halls.Any(x => x.HallName == movie.HallName);
             var sameDate = dal.Movies.Any(x => x.Date == movie.Date);
             if (ModelState.IsValid)
             {
@@ -73,12 +78,29 @@ namespace Computer_Communications_Project.Controllers
                     }
                     else
                     {
+                        if(HallName == false)
+                        {
+                            hall.HallName = movie.HallName;
+                            hall.ColNumber = 10;
+                            hall.RowNumber = 10;
+                            hallDal.Halls.Add(hall);
+                            hallDal.SaveChanges();
+                        }
                         dal.Movies.Add(movie);
                         dal.SaveChanges();
+                        
                     }
                 }
                 else
                 {
+                    if (HallName == false)
+                    {
+                        hall.HallName = movie.HallName;
+                        hall.ColNumber = 10;
+                        hall.RowNumber = 10;
+                        hallDal.Halls.Add(hall);
+                        hallDal.SaveChanges();
+                    }
                     dal.Movies.Add(movie);
                     dal.SaveChanges();
                 }
@@ -106,18 +128,23 @@ namespace Computer_Communications_Project.Controllers
         }
         public ActionResult EditMovie()
         {
-            Movie movie = new Movie();
-            return View("ShowDetails", movie);
+            MovieViewModel mvm = new MovieViewModel();
+            MoviesDal dal = new MoviesDal();
+            mvm.Movies = dal.Movies.ToList<Movie>();
+            return View("ShowDetails", mvm);
         }
         public ActionResult ShowDetails(string movieName)
         {
             MoviesDal dal = new MoviesDal();
-            Movie editMovie = dal.Movies.Find(movieName);
+            MovieViewModel mvm = new MovieViewModel();
+            mvm.movieName = dal.Movies.Find(movieName);
+            mvm.Movies = dal.Movies.ToList<Movie>();
+            //Movie editMovie = dal.Movies.Find(movieName);
             if (Request.Form["MovieName"] == null)
             {
                 return RedirectToAction("MyPage", "Home");
             }
-            return View(editMovie);
+            return View(mvm);
         }
         public ActionResult Edit(Movie movie)
         {

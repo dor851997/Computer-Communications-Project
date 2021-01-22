@@ -4,7 +4,6 @@ using Computer_Communications_Project.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Computer_Communications_Project.Controllers
@@ -43,7 +42,11 @@ namespace Computer_Communications_Project.Controllers
             List<Movie> movies;
             MoviesDal dal = new MoviesDal();
             movies = dal.Movies.ToList<Movie>();
-            if(PriceSelect == "price-increase")
+            if (PriceSelect == "null")
+            {
+                movies = dal.Movies.ToList<Movie>();
+            }
+            else if(PriceSelect == "price-increase")
             {
                 movies = dal.Movies.OrderByDescending(m => m.Price).ToList();
 
@@ -51,6 +54,10 @@ namespace Computer_Communications_Project.Controllers
             else if(PriceSelect == "price-decrease")
             {
                 movies = dal.Movies.OrderBy(m => m.Price).ToList();
+            }
+            else if(PriceSelect == "onsale")
+            {
+                movies = dal.Movies.Where(m => m.Discount > 0).ToList();
             }
             else
             {
@@ -62,15 +69,21 @@ namespace Computer_Communications_Project.Controllers
         }
         public ActionResult dateAction(string dateSelect)
         {
-            DateTime dateS = Convert.ToDateTime(dateSelect);
             List<Movie> movies;
             MoviesDal dal = new MoviesDal();
             movies = dal.Movies.ToList<Movie>();
-            if(dateSelect != null)
+            MovieViewModel MyMovieModel = new MovieViewModel();
+            if (dateSelect == "")
+            {
+
+                MyMovieModel.Movies = movies;
+                return View("MyPage", MyMovieModel);
+            }
+            DateTime dateS = Convert.ToDateTime(dateSelect);
+            if (dateSelect != null)
             {
                 movies = movies.Where(m => m.Date.Date == dateS.Date).ToList();
             }
-            MovieViewModel MyMovieModel = new MovieViewModel();
             MyMovieModel.Movies = movies;
             return View("MyPage", MyMovieModel);
         }

@@ -1,4 +1,5 @@
-﻿@model Computer_Communications_Project.Models.Movie
+﻿@model Computer_Communications_Project.ViewModel.MovieViewModel
+
 @using Computer_Communications_Project.Models
 @{ ViewBag.Title = "Edit"; }
 
@@ -45,7 +46,13 @@
             <table>
                 <tr>
                     <td>Enter movie name to search:</td>
-                    <td><input id="Text" type="text" name="movieName" value="@Model.MovieName" /></td>
+                    <select name="movieName">
+                        @foreach (Movie movie in Model.Movies)
+                        {
+                            <option value="@movie.MovieName">@movie.MovieName</option>
+                        }
+                    </select>
+                    <td>@*<input id="Text" type="text" name="movieName" value="@Model.movieName.MovieName" />*@</td>
                 </tr>
                 <tr>
                     <td><input id="Submit" type="submit" value="Search Movie" /></td>
@@ -61,44 +68,44 @@
         <table>
             <tr>
                 <td>Movie Name: </td>
-                <td>@Html.EditorFor(m => m.MovieName)</td>
+                <td>@Html.EditorFor(m => m.movieName.MovieName)</td>
             </tr>
             <tr>
                 <td>Age Limet: </td>
-                <td>@Html.EditorFor(m => m.AgeLimit)</td>
+                <td>@Html.EditorFor(m => m.movieName.AgeLimit)</td>
             </tr>
             <tr>
                 <td>Category: </td>
-                <td>@Html.EditorFor(m => m.Category)</td>
+                <td>@Html.EditorFor(m => m.movieName.Category)</td>
             </tr>
             <tr>
                 <td>Price: </td>
-                <td>@Html.EditorFor(m => m.Price)</td>
+                <td>@Html.EditorFor(m => m.movieName.Price)</td>
             </tr>
             <tr>
                 <td>Date: </td>
-                <td>@Html.EditorFor(m => m.Date)</td>
+                <td>@Html.EditorFor(m => m.movieName.Date)</td>
 
             </tr>
             <tr>
                 <td>Discount: </td>
-                <td>@Html.EditorFor(m => m.Discount) </td>
+                <td>@Html.EditorFor(m => m.movieName.Discount) </td>
             </tr>
             <tr>
                 <td>HallName </td>
-                <td>@Html.EditorFor(m => m.HallName)</td>
+                <td>@Html.EditorFor(m => m.movieName.HallName)</td>
             </tr>
             <tr>
                 <td>Duration: </td>
-                <td>@Html.EditorFor(m => m.Duration)</td>
+                <td>@Html.EditorFor(m => m.movieName.Duration)</td>
             </tr>
             <tr>
                 <td>SRC:</td>
-                <td>@Html.EditorFor(m => m.src)</td>
+                <td>@Html.EditorFor(m => m.movieName.src)</td>
             </tr>
             <tr>
                 <td>Rating:</td>
-                <td>@Html.EditorFor(m => m.Rating)</td>
+                <td>@Html.EditorFor(m => m.movieName.Rating)</td>
             </tr>
         </table>
         <input id="Edit" type="Submit" value="Edit Movie" />

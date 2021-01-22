@@ -1,4 +1,5 @@
 ﻿@model Computer_Communications_Project.ViewModel.MovieViewModel
+
 @using Computer_Communications_Project.Models
 @{
     ViewBag.Title = "ManageMovie";
@@ -49,7 +50,15 @@
             <table>
                 <tr>
                     <td>Enter movie name to delete:</td>
-                    <td><input id="Text" type="text" name="MovieName" value="@Model.movieName.MovieName" /></td>
+                    <td>
+                        <select name="MovieName">
+                            @foreach (Movie movie in Model.Movies)
+                            {
+                                <option value="@movie.MovieName">@movie.MovieName</option>
+                            }
+                        </select>
+                        @*<input id="Text" type="text" name="MovieName" value="@Model.movieName.MovieName" />*@
+                    </td>
                 </tr>
                 <tr>
                     <td><input id="Submit" type="submit" value="Delete Movie" /></td>

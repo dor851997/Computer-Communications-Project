@@ -1,0 +1,87 @@
+﻿@model Computer_Communications_Project.ViewModel.HallViewModel
+
+@using Computer_Communications_Project.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Hall</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 13pt;
+        }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="ShowDetails" method="post">
+            <br />
+            <table>
+                <tr>
+                    <td>Enter hall name to search:</td>
+                    <select name="HallName">
+                        @foreach (Hall hall in Model.Halls)
+                        {
+                             <option value="@hall.HallName">@hall.HallName</option>
+                        }
+                    </select>
+                    @*<td><input id="Text" type="text" name="HallName" value="@Model.HallName" /></td>*@
+                </tr>
+                <tr>
+                    <td><input id="Submit" type="submit" value="Search Hall" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br />
+    <b>Search Results:</b>
+    <br />
+    @using (Html.BeginForm("Edit", "Hall", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Hall Name: </td>
+                <td>@Html.EditorFor(m => m.Hall.HallName)</td>
+            </tr>
+            <tr>
+                <td>Column Number: </td>
+                <td>@Html.EditorFor(m => m.Hall.ColNumber)</td>
+            </tr>
+            <tr>
+                <td>Row Number: </td>
+                <td>@Html.EditorFor(m => m.Hall.RowNumber)</td>
+            </tr>
+        </table>
+        <input id="Edit" type="Submit" value="Edit Hall" />
+    }
+</body>
+</html>

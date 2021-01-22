@@ -56,12 +56,14 @@
         @using (Html.BeginForm("priceAction", "Home", FormMethod.Post))
         {
 
-            <select id="PriceSelect" name="PriceSelect">
-                <option value="price-increase">price increase</option>
-                <option value="price-decrease">price decrease</option>
-                <option value="most-popular">Most Popular</option>
+    <select id="PriceSelect" name="PriceSelect">
+        <option value="null">normal</option>
+        <option value="onsale">on sale</option>
+        <option value="price-increase">price increase</option>
+        <option value="price-decrease">price decrease</option>
+        <option value="most-popular">Most Popular</option>
 
-            </select>
+    </select>
             <input type="submit" value="submit" />
 
         }
@@ -77,38 +79,38 @@
     <div class="row">
         @foreach (Movie m in Model.Movies)
         {
-                <div class="column" style="width:300px">
-                    <div class="card">
-                        <img src="@m.src" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>@m.MovieName</h2>
-                            <p class="title">@m.Category</p>
-                            <p>Age limit: @m.AgeLimit</p>
-                            <p>Date and time: @m.Date</p>
-                            <p>Duration: @m.Duration</p>
-                            <p>Price: @m.Price</p>
-                            <p>Hall number: @m.HallName</p>
-                            <form action="/Order/addOrder" method="post">
-                                <input type="hidden" name="movieName" value="@m.MovieName" />
-                                <input type="submit" value="Order" />
-                            </form>
-                        </div>
+            <div class="column" style="width:300px">
+                <div class="card">
+                    <img src="@m.src" alt="Jane" style="width:100%">
+                    <div class="container">
+                        <h2>@m.MovieName</h2>
+                        <p class="title">@m.Category</p>
+                        <p>Age limit: @m.AgeLimit</p>
+                        <p>Date and time: @m.Date</p>
+                        <p>Duration: @m.Duration</p>
+                        <p>Price: @m.Price</p>
+                        <p>Hall number: @m.HallName</p>
+                        <form action="/Order/addOrder" method="post">
+                            <input type="hidden" name="movieName" value="@m.MovieName" />
+                            <input type="submit" value="Order" />
+                        </form>
                     </div>
                 </div>
+            </div>
         }
 
     </div>
 
 
-            <div class="last-div">
-                <ul>
-                    <li><a href="">About</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">About</a></li>
-                </ul>
+    <div class="last-div">
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">About</a></li>
+        </ul>
 
 
-            </div>
+    </div>
 
 
 </body>

@@ -137,9 +137,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\SeatsController.cs" />
+    <Compile Include="Controllers\HallController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\AdminsDal.cs" />
+    <Compile Include="DAL\HallsDal.cs" />
     <Compile Include="DAL\MoviesDal.cs" />
     <Compile Include="DAL\OrdersDal.cs" />
     <Compile Include="DAL\UsersDal.cs" />
@@ -147,10 +148,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\HallViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
@@ -195,7 +198,6 @@
     <Content Include="Views\Movie\AddMovie.cshtml" />
     <Content Include="Views\Movie\ShowDetails.cshtml" />
     <Content Include="Views\Order\addOrder.cshtml" />
-    <None Include="Views\Seats\Seats.cshtml" />
     <Content Include="Scripts\Seatsscript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -213,6 +215,7 @@
     <Content Include="Views\User\Logout.cshtml" />
     <Content Include="Views\User\SearchUser.cshtml" />
     <Content Include="Views\User\UserLogin.cshtml" />
+    <Content Include="Views\Hall\ShowDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
