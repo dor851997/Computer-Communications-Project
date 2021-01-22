@@ -43,6 +43,7 @@
     <div style="background-color:#ffffff;">
         <form action="/">
             <select id="CategorySelect" name="CategorySelect">
+                <option value="null">All</option>
                 <option value="Action">Action</option>
                 <option value="Drama">Drama</option>
                 <option value="Comedey">Comedey</option>
@@ -87,6 +88,10 @@
                             <p>Duration: @m.Duration</p>
                             <p>Price: @m.Price</p>
                             <p>Hall number: @m.HallName</p>
+                            <form action="/Order/addOrder" method="post">
+                                <input type="hidden" name="movieName" value="@m.MovieName" />
+                                <input type="submit" value="Order" />
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,10 @@ namespace Computer_Communications_Project.Controllers
             {
                 movies = dal.Movies.ToList<Movie>();
             }
+            else if(CategorySelect == "null")
+            {
+                movies = dal.Movies.ToList<Movie>();
+            }
             else
             {
                 movies = dal.Movies.Where(m => m.Category == CategorySelect).ToList();
