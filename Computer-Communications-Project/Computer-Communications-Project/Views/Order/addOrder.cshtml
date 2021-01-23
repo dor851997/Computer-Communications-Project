@@ -12,9 +12,12 @@
     <meta charset="UTF-8" />
     <link href="~/Content/Seats.css" rel="stylesheet" />
     <script src="~/Scripts/OrderScript.js"></script>
+    <link href="~/Content/PaymentStyle.css" rel="stylesheet" />
     <title>Movie Seat Booking</title>
 </head>
 <body>
+    @using (Html.BeginForm("payment", "Order", FormMethod.Post))
+    {
     <div>
         <div>
             <p>Movie Name: @Model.Movie.MovieName</p>
@@ -38,7 +41,7 @@
                         else
                         {
                             <td>
-                                <div onclick="seatCol(this, @Model.Movie.Price)" class="selectedSeats">
+                                <div onclick="seatCol(this, @Model.Movie.Price, @i, @j)" class="selectedSeats">
                                     &#x1f4ba;
                                 </div>
                             </td>
@@ -49,10 +52,14 @@
         </table>
         <p>total seats = <span id="myTotal">0</span></p>
         <p>Total price = <span id="totalPrice">0</span></p>
-        <form action="payment" method="post">
-            <input type="submit" value="Order" />
-        </form>
+        <input id="payment" type="Submit" value="Continue to checkout" class="btn" />
+        <input type="text" name="line" value="" id="line" hidden required />
+        <input type="text" name="chair" value="" id="chair" hidden required />
+
+
     </div>
+    }
+
 </body>
 </html>
 

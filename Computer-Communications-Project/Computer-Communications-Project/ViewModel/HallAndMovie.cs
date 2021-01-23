@@ -11,5 +11,6 @@ namespace Computer_Communications_Project.ViewModel
         public Movie Movie { get; set; }
         public Hall Hall { get; set; }
         public List<Order> Orders { get; set; }
+        public Order order { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-function seatCol(el ,price) {
+﻿function seatCol(el ,price,row,colm) {
     if (el.style.backgroundColor == "yellow") {
         el.style.backgroundColor = "white";
     }
@@ -9,6 +8,8 @@ function seatCol(el ,price) {
     var x = document.querySelectorAll(".selectedSeats");
     var i;
     var count = 0;
+    document.getElementById("line").value = String(row);
+    document.getElementById("chair").value = String(colm);
     for (i = 0; i < x.length; i++) {
         if (x[i].style.backgroundColor == "yellow") {
             count++;
@@ -16,17 +17,5 @@ function seatCol(el ,price) {
     }
     document.getElementById("myTotal").innerHTML = count;
     document.getElementById("totalPrice").innerHTML = count * price;
+    
 }
-//function calcTickets() {
-//    alert('!!!!!!!!!');
-//    var x = document.querySelectorAll(".selectedSeats");
-//    var i;
-//    var count = 0;
-//    for (i = 0; i < x.length; i++) {
-//        if (x[i].style.ckgroundColor == "yellow") {
-//            count++;
-//        }
-//    }
-//    '@ViewBag.totalVal' = 10;
-//    document.body.style.backgroundColor = "red";
-//}

@@ -6,8 +6,7 @@ namespace Computer_Communications_Project.Models
 {
     public class Order
     {
-        [Required]
-        public int OrderID { get; set; }
+        public int? OrderID { get; set; }
         [Required]
         public string MovieName { get; set; }
         [Required]
