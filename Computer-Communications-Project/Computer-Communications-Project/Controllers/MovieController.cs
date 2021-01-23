@@ -146,14 +146,25 @@ namespace Computer_Communications_Project.Controllers
             }
             return View(mvm);
         }
-        public ActionResult Edit(Movie movie)
+        public ActionResult Edit(MovieViewModel movie)
         {
             MoviesDal dal = new MoviesDal();
+            HallsDal hallDal = new HallsDal();
+            Hall hall = new Hall();
+            var HallName = hallDal.Halls.Any(x => x.HallName == movie.movieName.HallName);
             Movie objMovie = (from x in dal.Movies
-                        where x.MovieName == movie.MovieName
+                        where x.MovieName == movie.movieName.MovieName
                         select x).Single<Movie>();
+            if (HallName == false)
+            {
+                hall.HallName = movie.movieName.HallName;
+                hall.ColNumber = 10;
+                hall.RowNumber = 10;
+                hallDal.Halls.Add(hall);
+                hallDal.SaveChanges();
+            }
             dal.Movies.Remove(objMovie);
-            dal.Movies.Add(movie);
+            dal.Movies.Add(movie.movieName);
             dal.SaveChanges();
             return RedirectToAction("EditMovie");
         }

@@ -9,7 +9,7 @@ namespace Computer_Communications_Project.Controllers
 {
     public class HallController : Controller
     {
-        // GET: Seats
+        // GET: Hall
         public ActionResult Index()
         {
             return View();
@@ -44,7 +44,7 @@ namespace Computer_Communications_Project.Controllers
             dal.Halls.Remove(objHall);
             dal.Halls.Add(hall);
             dal.SaveChanges();
-            return RedirectToAction("EditHall");
+            return RedirectToAction("MyPage", "Home");
         }
     }
 }
